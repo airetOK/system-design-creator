@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  system-design-creator-frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: system-design-creator-frontend
+    container_name: system-design-creator-frontend
+    ports:
+      - "4200:4200"
+
+  system-design-creator-backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: system-design-creator-backend
+    container_name: system-design-creator-backend
+    ports:
+      - "8000:8000"
+  
