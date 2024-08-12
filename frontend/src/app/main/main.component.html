@@ -1,0 +1,28 @@
+<div [hidden]="!flagsShowComponents[0]">
+    <app-start-page language="{{language}}"></app-start-page>
+</div>
+
+<div [hidden]="!flagsShowComponents[1]">
+    <app-clarify-requirements
+        language="{{language}}"></app-clarify-requirements>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div *ngIf="prevButtonDisabled; else prevButtonEnabled">
+        <button type="button" class="btn btn-link" (click)="prev()"
+            disabled>Previous</button>
+    </div>
+    <ng-template #prevButtonEnabled>
+        <button type="button" class="btn btn-link"
+            (click)="prev()">Previous</button>
+    </ng-template>
+
+    <div *ngIf="nextButtonDisabled; else nextButtonEnabled">
+        <button type="button" class="btn btn-link" (click)="next()"
+            disabled>Next</button>
+    </div>
+    <ng-template #nextButtonEnabled>
+        <button type="button" class="btn btn-link"
+            (click)="next()">Next</button>
+    </ng-template>
+</div>

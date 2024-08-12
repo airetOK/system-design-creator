@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { ClarifyRequirementsComponent } from './clarify-requirements/clarify-requirements.component';
+import { MainComponent } from './main/main.component';
 
 export const routes: Routes = [
-    { path: ':lang', component: ClarifyRequirementsComponent }
+    { path: ':lang', component: MainComponent },
+    { path: '', redirectTo: 'en', pathMatch: 'full' }
 ];

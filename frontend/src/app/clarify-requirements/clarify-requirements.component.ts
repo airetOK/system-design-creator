@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit, Input } from '@angular/core';
 import { CLARIFY_REQUIREMENTS } from '../constants/clarify_requirements';
 import { NgFor } from '@angular/common';
 
@@ -13,18 +12,17 @@ import { NgFor } from '@angular/common';
 })
 export class ClarifyRequirementsComponent implements OnInit {
 
+  @Input()
+  language: string = '';
+
   clarifyReq: string = '';
   funcReq: string = '';
   nonFuncReq: string = '';
   funcReqQuestions: string[] = [];
   nonFuncReqQuestions: string[] = [];
 
-  constructor(public location: Location) {
-  }
-
   ngOnInit(): void {
-    // url expects to be /<lang>
-    const values = CLARIFY_REQUIREMENTS[this.location.path().replace('/', '')];
+    const values = CLARIFY_REQUIREMENTS[this.language];
     const headings = values['headings'];
     this.clarifyReq = headings[0];
     this.funcReq = headings[1]
