@@ -1,0 +1,22 @@
+
+<p class="text-center lead">{{ clarifyReq }}</p>
+<div class="d-flex justify-content-center column-gap-3 mx-4">
+    <div class="col-6">
+        <p class="lead">{{ funcReq }}</p>
+        <ul *ngFor="let question of funcReqQuestions" class="list-group">
+            <li class="list-group-item mb-2">{{question}}</li>
+            <div class="mb-3">
+                <textarea class="form-control" rows="2"></textarea>
+            </div>
+        </ul>
+    </div>
+    <div class="col-6">
+        <p class="lead">{{ nonFuncReq }}</p>
+        <ul *ngFor="let question of nonFuncReqQuestions" class="list-group">
+            <li class="list-group-item mb-2">{{question}}</li>
+            <div class="mb-3">
+                <textarea class="form-control" rows="2"></textarea>
+            </div>
+        </ul>
+    </div>
+</div>
