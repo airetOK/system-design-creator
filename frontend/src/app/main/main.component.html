@@ -1,5 +1,6 @@
 <div [hidden]="!flagsShowComponents[0]">
-    <app-start-page language="{{language}}"></app-start-page>
+    <app-start-page language="{{language}}"
+                    [supportedLangs]="SUPPORTED_LANGS"></app-start-page>
 </div>
 
 <div [hidden]="!flagsShowComponents[1]">

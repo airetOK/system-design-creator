@@ -19,12 +19,15 @@ export class MainComponent {
   nextButtonDisabled: boolean = false;
   language: string = '';
   DEFAULT_LANG: string = 'en';
+  SUPPORTED_LANGS: string[] = ['en', 'ua'];
 
   constructor(public location: Location) {
     // flags for each component (start from start-page)
     this.flagsShowComponents = [true, false, false];
+    const lang = this.location.path().split('/')[1];
+    this.redirectUnsupported(lang);
     // url expects to be /<lang>
-    this.language = this.location.path().split('/')[1] || this.DEFAULT_LANG;
+    this.language = lang || this.DEFAULT_LANG;
   }
 
   prev() {
@@ -49,6 +52,12 @@ export class MainComponent {
     }
     if (index + 1 == length) {
       this.nextButtonDisabled = true;
+    }
+  }
+
+  private redirectUnsupported(lang: string): void {
+    if (!this.SUPPORTED_LANGS.includes(lang)) {
+      window.location.replace(`/${this.DEFAULT_LANG}`);
     }
   }
 }

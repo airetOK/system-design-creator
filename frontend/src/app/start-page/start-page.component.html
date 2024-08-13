@@ -1,5 +1,12 @@
 <div class="d-flex align-items-center" style="min-height: 100vh">
     <div class="box w-100 text-center">
-        <h1>{{ start_button_text }}</h1>
+        <h1>{{ startButtonText }}</h1>
+        <div class="mt-2">
+            <input class="form-control" placeholder="{{ typeName }}">
+            <select class="form-select" [(ngModel)]="language" (change)="changeLang(language)">
+                <option selected>{{ chooseLang }}</option>
+                <option *ngFor="let lang of supportedLangs">{{lang}}</option>
+            </select>
+        </div>
     </div>
 </div>
