@@ -3,12 +3,13 @@ import { Location } from '@angular/common';
 import { StartPageComponent } from '../start-page/start-page.component';
 import { ClarifyRequirementsComponent } from '../clarify-requirements/clarify-requirements.component';
 import { CapacityEstimationComponent } from '../capacity-estimation/capacity-estimation.component';
+import { HighLevelDesignComponent } from '../high-level-design/high-level-design.component';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NgIf, StartPageComponent, ClarifyRequirementsComponent, CapacityEstimationComponent],
+  imports: [NgIf, StartPageComponent, ClarifyRequirementsComponent, CapacityEstimationComponent, HighLevelDesignComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
@@ -23,7 +24,7 @@ export class MainComponent {
 
   constructor(public location: Location) {
     // flags for each component (start from start-page)
-    this.flagsShowComponents = [true, false, false];
+    this.flagsShowComponents = [true, false, false, false];
     const lang = this.location.path().split('/')[1];
     this.redirectUnsupported(lang);
     // url expects to be /<lang>
