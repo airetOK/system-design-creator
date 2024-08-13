@@ -18,6 +18,11 @@
         language="{{language}}"></app-high-level-design>
 </div>
 
+<div [hidden]="!flagsShowComponents[4]">
+    <app-generate-file
+        language="{{language}}"></app-generate-file>
+</div>
+
 <div class="d-flex justify-content-center">
     <div *ngIf="prevButtonDisabled; else prevButtonEnabled">
         <button type="button" class="btn btn-link" (click)="prev()"
