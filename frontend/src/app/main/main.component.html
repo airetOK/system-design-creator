@@ -19,6 +19,11 @@
 </div>
 
 <div [hidden]="!flagsShowComponents[4]">
+    <app-database-design
+        language="{{language}}"></app-database-design>
+</div>
+
+<div [hidden]="!flagsShowComponents[5]">
     <app-generate-file
         language="{{language}}"></app-generate-file>
 </div>

@@ -42,4 +42,7 @@ export class SharedService {
   highLevelDesignData: any = {
     'imageBase64': '' 
   }
+  databaseDesignData: any = {
+    'imageBase64': '' 
+  }
 }
