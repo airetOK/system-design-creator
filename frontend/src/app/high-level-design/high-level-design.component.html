@@ -3,8 +3,8 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">{{ highLevelDesign }}</h5>
-        <input type="file" class="form-control"
-            accept="image/png, image/jpeg" />
+        <input type="file" class="form-control" name="imageBase64"
+            accept="image/png, image/jpeg" (change)="onFileChange($event)" />
     </div>
 </div>
 <div class="embed-responsive">

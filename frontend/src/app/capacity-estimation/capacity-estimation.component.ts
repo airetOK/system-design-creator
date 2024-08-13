@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CAPACITY_ESTIMATION } from '../constants/capacity_estimation';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-capacity-estimation',
@@ -34,6 +35,8 @@ export class CapacityEstimationComponent implements OnInit {
   trafficVolume: string = '';
   dataTransferSize: string = '';
 
+  constructor(private sharedService: SharedService) {}
+
   ngOnInit(): void {
     const values = CAPACITY_ESTIMATION[this.language];
     this.heading = values['heading'];
@@ -57,5 +60,7 @@ export class CapacityEstimationComponent implements OnInit {
     this.dataTransferSize = values['dataTransferSize'];
   }
 
-
+  setInputValue(element: any): void {
+    this.sharedService.capacityEstimationData[element.name] = element.value;
+  }
 }

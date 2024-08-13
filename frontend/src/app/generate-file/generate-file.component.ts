@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { GENERATE_FILE } from '../constants/generate_file';
 import { OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-generate-file',
@@ -16,7 +17,13 @@ export class GenerateFileComponent implements OnInit {
 
   generateFileText: string = '';
 
+  constructor(private sharedService: SharedService) {}
+
   ngOnInit(): void {
     this.generateFileText = GENERATE_FILE[this.language];
+  }
+
+  sendData(): void {
+    // collect data via shared service and POST to backend
   }
 }

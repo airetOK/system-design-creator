@@ -11,11 +11,17 @@
                 <div class="card-text">
                     <div class="mb-2">
                         <p>{{ dailyUsers }}</p>
-                        <input class="form-control">
+                        <input class="form-control"
+                            name="dailyUsersAnswer"
+                            #dailyUsersAnswer
+                            (input)="setInputValue(dailyUsersAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ maxConcurrentUsers }}</p>
-                        <input class="form-control">
+                        <input class="form-control"
+                            name="maxConcurrentUsersAnswer"
+                            #maxConcurrentUsersAnswer
+                            (input)="setInputValue(maxConcurrentUsersAnswer)">
                     </div>
                 </div>
             </div>
@@ -35,19 +41,23 @@
                 <div class="card-text">
                     <div class="mb-2">
                         <p>{{ readOps }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="readOpsAnswer" #readOpsAnswer
+                            (input)="setInputValue(readOpsAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ writeOps }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="writeOpsAnswer" #writeOpsAnswer
+                            (input)="setInputValue(writeOpsAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ peakReadOps }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="peakReadOpsAnswer" #peakReadOpsAnswer
+                            (input)="setInputValue(peakReadOpsAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ peakWriteOps }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="peakWriteOpsAnswer" #peakWriteOpsAnswer
+                            (input)="setInputValue(peakWriteOpsAnswer)">
                     </div>
                 </div>
             </div>
@@ -67,15 +77,18 @@
                 <div class="card-text">
                     <div class="mb-2">
                         <p>{{ storageType }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="storageTypeAnswer" #storageTypeAnswer
+                            (input)="setInputValue(storageTypeAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ totalAmountStorage }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="totalAmountStorageAnswer" #totalAmountStorageAnswer
+                            (input)="setInputValue(totalAmountStorageAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ growthRate }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="growthRateAnswer" #growthRateAnswer
+                            (input)="setInputValue(growthRateAnswer)">
                     </div>
                 </div>
             </div>
@@ -95,11 +108,13 @@
                 <div class="card-text">
                     <div class="mb-2">
                         <p>{{ includeCacheMemory }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="includeCacheMemoryAnswer" #includeCacheMemoryAnswer
+                            (input)="setInputValue(includeCacheMemoryAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ cacheMemorySize }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="cacheMemorySizeAnswer" #cacheMemorySizeAnswer
+                            (input)="setInputValue(cacheMemorySizeAnswer)">
                     </div>
                 </div>
             </div>
@@ -119,11 +134,13 @@
                 <div class="card-text">
                     <div class="mb-2">
                         <p>{{ trafficVolume }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="trafficVolumeAnswer" #trafficVolumeAnswer
+                            (input)="setInputValue(trafficVolumeAnswer)">
                     </div>
                     <div class="mb-2">
                         <p>{{ dataTransferSize }}</p>
-                        <input class="form-control">
+                        <input class="form-control" name="dataTransferSizeAnswer" #dataTransferSizeAnswer
+                            (input)="setInputValue(dataTransferSizeAnswer)">
                     </div>
                 </div>
             </div>

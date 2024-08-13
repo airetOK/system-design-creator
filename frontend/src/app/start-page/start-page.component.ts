@@ -3,6 +3,7 @@ import { START_BUTTON, CHOOSE_LANG, TYPE_NAME } from '../constants/start_page';
 import { OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SharedService } from '../shared.service';
 
 
 @Component({
@@ -19,10 +20,12 @@ export class StartPageComponent implements OnInit {
   @Input()
   supportedLangs: string[] = [];
 
+  inputNameValue: string = '';
   startButtonText: string = '';
   typeName: string = '';
   chooseLang: string = '';
 
+  constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
     this.startButtonText = START_BUTTON[this.language];
@@ -32,5 +35,9 @@ export class StartPageComponent implements OnInit {
 
   changeLang(lang: string) {
     window.location.replace(`/${lang}`);
+  }
+
+  setName(): void {
+    this.sharedService.startPageData = this.inputNameValue;
   }
 }
