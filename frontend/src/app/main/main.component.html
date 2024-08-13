@@ -7,6 +7,11 @@
         language="{{language}}"></app-clarify-requirements>
 </div>
 
+<div [hidden]="!flagsShowComponents[2]">
+    <app-capacity-estimation
+        language="{{language}}"></app-capacity-estimation>
+</div>
+
 <div class="d-flex justify-content-center">
     <div *ngIf="prevButtonDisabled; else prevButtonEnabled">
         <button type="button" class="btn btn-link" (click)="prev()"

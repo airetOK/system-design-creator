@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { StartPageComponent } from '../start-page/start-page.component';
 import { ClarifyRequirementsComponent } from '../clarify-requirements/clarify-requirements.component';
+import { CapacityEstimationComponent } from '../capacity-estimation/capacity-estimation.component';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NgIf, StartPageComponent, ClarifyRequirementsComponent],
+  imports: [NgIf, StartPageComponent, ClarifyRequirementsComponent, CapacityEstimationComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
@@ -20,7 +21,8 @@ export class MainComponent {
   DEFAULT_LANG: string = 'en';
 
   constructor(public location: Location) {
-    this.flagsShowComponents = [true, false];
+    // flags for each component (start from start-page)
+    this.flagsShowComponents = [true, false, false];
     // url expects to be /<lang>
     this.language = this.location.path().split('/')[1] || this.DEFAULT_LANG;
   }
