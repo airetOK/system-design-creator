@@ -45,4 +45,7 @@ export class SharedService {
   databaseDesignData: any = {
     'imageBase64': '' 
   }
+  designAPIandCommunicatonProtocols: any = {
+    'apiRequests': {}
+  }
 }
