@@ -37,7 +37,7 @@ export class StartPageComponent implements OnInit {
     window.location.replace(`/${lang}`);
   }
 
-  setName(): void {
-    this.sharedService.startPageData = this.inputNameValue;
+  setName(event: any): void {
+    this.sharedService.startPageData[event.name] = this.inputNameValue;
   }
 }

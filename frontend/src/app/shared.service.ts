@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class SharedService {
 
-  startPageData: string = '';
+  startPageData: any = {
+    'name': ''
+  };
   clarifyRequirementsData: any = {
     'funcAnswer0': '',
     'funcAnswer1': '',
