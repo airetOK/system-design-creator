@@ -7,13 +7,15 @@ import { HighLevelDesignComponent } from '../high-level-design/high-level-design
 import { DatabaseDesignComponent } from '../database-design/database-design.component';
 import { GenerateFileComponent } from '../generate-file/generate-file.component';
 import { DesignApiAndCommunicationProtocolsComponent } from '../design-api-and-communication-protocols/design-api-and-communication-protocols.component';
+import { DiveDeeperIntoKeyComponentsComponent } from '../dive-deeper-into-key-components/dive-deeper-into-key-components.component';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [NgIf, StartPageComponent, ClarifyRequirementsComponent, CapacityEstimationComponent, 
-    HighLevelDesignComponent, DatabaseDesignComponent, GenerateFileComponent, DesignApiAndCommunicationProtocolsComponent],
+    HighLevelDesignComponent, DatabaseDesignComponent, GenerateFileComponent, 
+    DesignApiAndCommunicationProtocolsComponent, DiveDeeperIntoKeyComponentsComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
@@ -28,7 +30,7 @@ export class MainComponent {
 
   constructor(public location: Location) {
     // flags for each component (start from start-page)
-    this.flagsShowComponents = [true, false, false, false, false, false, false];
+    this.flagsShowComponents = [true, false, false, false, false, false, false, false];
     const lang = this.location.path().split('/')[1];
     this.redirectUnsupported(lang);
     // url expects to be /<lang>

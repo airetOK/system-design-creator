@@ -48,4 +48,13 @@ export class SharedService {
   designAPIandCommunicatonProtocols: any = {
     'apiRequests': {}
   }
+  deepDiveIntoKeyComponentsData: any = {
+    'databaseAnswer': '',
+    'webAppServersAnswer': '',
+    'loadBalancersAnswer': '',
+    'cachingAnswer': '',
+    'singlePointsFailureAnswer': '',
+    'authenticationAuthorizationAnswer': '',
+    'rateLimitingAnswer': '',
+  }
 }
