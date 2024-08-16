@@ -93,8 +93,27 @@ export class SharedService {
         "cache_memory_size": this.capacityEstimationData.cacheMemorySizeAnswer,
         "traffic_volume": this.capacityEstimationData.trafficVolumeAnswer,
         "data_transfer_size": this.capacityEstimationData.dataTransferSizeAnswer
+      },
+      "high_level_design": {
+        "image_base64": this.highLevelDesignData.imageBase64
+      },
+      "database_design": {
+        "image_base64": this.databaseDesignData.imageBase64
+      },
+      "design_api_and_communicaton_protocols": {
+        "api_requests": this.designAPIandCommunicatonProtocols.apiRequests
+      },
+      "deep_dive_into_key_components": {
+        "database": this.deepDiveIntoKeyComponentsData.databaseAnswer,
+        "web_app_servers": this.deepDiveIntoKeyComponentsData.webAppServersAnswer,
+        "load_balancers": this.deepDiveIntoKeyComponentsData.loadBalancersAnswer,
+        "caching": this.deepDiveIntoKeyComponentsData.cachingAnswer,
+        "single_points_failure": this.deepDiveIntoKeyComponentsData.singlePointsFailureAnswer,
+        "authentication_authorization": this.deepDiveIntoKeyComponentsData.authenticationAuthorizationAnswer,
+        "rate_limiting": this.deepDiveIntoKeyComponentsData.rateLimitingAnswer
       }
     };
+    console.log(requestBody);
     this.client.post(`${environment.apiUrl}${this.GENERATE_PDF_PATH}`, requestBody).subscribe(response => {
       // TO:DO generate download link for .pdf
       console.log(response);
