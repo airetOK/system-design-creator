@@ -10,7 +10,8 @@ export class SharedService {
   GENERATE_PDF_PATH: string = '/generate_pdf';
 
   startPageData: any = {
-    'name': ''
+    'name': '',
+    'language': ''
   };
 
   clarifyRequirementsData: any = {
@@ -75,6 +76,7 @@ export class SharedService {
   sendData() {
     const requestBody = {
       "name": this.startPageData.name,
+      "language": this.startPageData.language,
       "clarify_requirements": {
         "func_req_answers": [this.clarifyRequirementsData.funcAnswer0],
         "nonfunc_req_answers": [this.clarifyRequirementsData.nonFuncAnswer0],

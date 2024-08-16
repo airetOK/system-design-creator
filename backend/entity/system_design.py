@@ -11,6 +11,7 @@ from entity.deep_dive_into_key_components import DeepDiveIntoKeyComponents
 class SystemDesign(BaseModel):
 
     name: str
+    language: str
     clarify_requirements: ClarifyRequirements
     capacity_estimation: CapacityEstimation
     high_level_design: HighLevelDesign

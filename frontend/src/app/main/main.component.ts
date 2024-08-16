@@ -9,6 +9,7 @@ import { GenerateFileComponent } from '../generate-file/generate-file.component'
 import { DesignApiAndCommunicationProtocolsComponent } from '../design-api-and-communication-protocols/design-api-and-communication-protocols.component';
 import { DiveDeeperIntoKeyComponentsComponent } from '../dive-deeper-into-key-components/dive-deeper-into-key-components.component';
 import { NgIf } from '@angular/common';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-main',
@@ -28,13 +29,14 @@ export class MainComponent {
   DEFAULT_LANG: string = 'en';
   SUPPORTED_LANGS: string[] = ['en', 'ua'];
 
-  constructor(public location: Location) {
+  constructor(public location: Location, private sharedService: SharedService) {
     // flags for each component (start from start-page)
     this.flagsShowComponents = [true, false, false, false, false, false, false, false];
     const lang = this.location.path().split('/')[1];
     this.redirectUnsupported(lang);
     // url expects to be /<lang>
     this.language = lang || this.DEFAULT_LANG;
+    this.sharedService.startPageData.language = this.language;
   }
 
   prev() {
