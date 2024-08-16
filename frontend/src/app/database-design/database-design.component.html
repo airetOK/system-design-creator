@@ -1,15 +1,12 @@
-<div class="card">
-    <div class="card-header">
-    </div>
+<div class="card mx-3 mt-2">
     <div class="card-body">
-        <h5 class="card-title">{{ databaseDesign }}</h5>
+        <h2 class="card-title text-center">{{ databaseDesign }}</h2>
         <input type="file" class="form-control" name="imageBase64"
             accept="image/png, image/jpeg" (change)="onFileChange($event)" />
     </div>
 </div>
-<div class="embed-responsive">
+<div class="embed-responsive mt-3">
     <iframe class="embed-responsive-item" src="assets/localfile.html"
-    style="height: 80vh;"
     name="drawIoFrame"
     width="100%"
     allowTransparency="true"

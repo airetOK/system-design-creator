@@ -3,3 +3,23 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap/scss/_list-group";
 @import "bootstrap/scss/_utilities";
+@import "font-awesome/scss/font-awesome.scss";
+
+html,
+body {
+    height: 100%;
+    background: linear-gradient(to right, #8685ef, #faf8ff);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: linear-gradient(#8685ef, #faf8ff);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: white;    /* color of the scroll thumb */
+}

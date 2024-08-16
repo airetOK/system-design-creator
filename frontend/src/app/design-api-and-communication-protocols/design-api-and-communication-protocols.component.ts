@@ -44,6 +44,8 @@ export class DesignApiAndCommunicationProtocolsComponent implements OnInit {
     this.renderer.addClass(div, "row");
     this.renderer.addClass(div, "g-3");
     this.renderer.addClass(div, "mt-2");
+    this.renderer.addClass(div, "mx-5");
+    this.renderer.addClass(div, "mb-2");
     this.renderer.setAttribute(div, "id", `${id}`);
 
     const selectForm = this.addSelectForm(`${id}#selectFormAnswer${id}`);

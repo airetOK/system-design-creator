@@ -1,7 +1,10 @@
 <h1 class="text-center">{{ designApiAndCommunicationProtocol }}</h1>
-<button type="button"
-    class="btn btn-link"
-    (click)="addRequest()">{{addRequestText }}</button>
+<div class="d-flex justify-content-center">
+    <button type="button"
+        class="btn btn-link"
+        (click)="addRequest()"><i class="fa fa-plus fa-2x"
+            title="{{addRequestText}}" aria-hidden="true"></i></button>
+</div>
 
 <div id="parent">
     <!-- the div elements added inside parent div dynamically-->

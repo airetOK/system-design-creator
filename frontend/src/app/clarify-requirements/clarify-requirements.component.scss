@@ -1,0 +1,16 @@
+.funcReqCol {
+    border: 3px solid black;
+}
+
+.nonFuncReqCol {
+    border: 1px solid black;
+}
+
+ul, li, textarea {
+    border-width: inherit;
+    border-radius: 0;
+}
+
+textarea {
+    box-shadow: 2px 2px;
+}

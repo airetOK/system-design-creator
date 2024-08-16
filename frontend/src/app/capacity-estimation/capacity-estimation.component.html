@@ -1,23 +1,23 @@
 <h1 class="text-center">{{ heading }}</h1>
-<div class="card mb-2">
+<div class="card mb-3 mx-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="d-flex justify-content-center col-md-4">
             <img src="assets/users.png" class="img-fluid rounded-start"
                 alt="users-pic">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{ usersHeading }}</h5>
+                <h4 class="card-title">{{ usersHeading }}</h4>
                 <div class="card-text">
                     <div class="mb-2">
-                        <p>{{ dailyUsers }}</p>
+                        <p class="text-center">{{ dailyUsers }}</p>
                         <input class="form-control"
                             name="dailyUsersAnswer"
                             #dailyUsersAnswer
                             (input)="setInputValue(dailyUsersAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ maxConcurrentUsers }}</p>
+                        <p class="text-center">{{ maxConcurrentUsers }}</p>
                         <input class="form-control"
                             name="maxConcurrentUsersAnswer"
                             #maxConcurrentUsersAnswer
@@ -29,34 +29,38 @@
     </div>
 </div>
 
-<div class="card mb-2">
+<div class="card mb-3 mx-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="d-flex justify-content-center col-md-4">
             <img src="assets/traffic.png" class="img-fluid rounded-start"
                 alt="users-pic">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{ trafficHeading }}</h5>
+                <h4 class="card-title">{{ trafficHeading }}</h4>
                 <div class="card-text">
                     <div class="mb-2">
-                        <p>{{ readOps }}</p>
-                        <input class="form-control" name="readOpsAnswer" #readOpsAnswer
+                        <p class="text-center">{{ readOps }}</p>
+                        <input class="form-control" name="readOpsAnswer"
+                            #readOpsAnswer
                             (input)="setInputValue(readOpsAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ writeOps }}</p>
-                        <input class="form-control" name="writeOpsAnswer" #writeOpsAnswer
+                        <p class="text-center">{{ writeOps }}</p>
+                        <input class="form-control" name="writeOpsAnswer"
+                            #writeOpsAnswer
                             (input)="setInputValue(writeOpsAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ peakReadOps }}</p>
-                        <input class="form-control" name="peakReadOpsAnswer" #peakReadOpsAnswer
+                        <p class="text-center">{{ peakReadOps }}</p>
+                        <input class="form-control" name="peakReadOpsAnswer"
+                            #peakReadOpsAnswer
                             (input)="setInputValue(peakReadOpsAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ peakWriteOps }}</p>
-                        <input class="form-control" name="peakWriteOpsAnswer" #peakWriteOpsAnswer
+                        <p class="text-center">{{ peakWriteOps }}</p>
+                        <input class="form-control" name="peakWriteOpsAnswer"
+                            #peakWriteOpsAnswer
                             (input)="setInputValue(peakWriteOpsAnswer)">
                     </div>
                 </div>
@@ -65,29 +69,33 @@
     </div>
 </div>
 
-<div class="card mb-2">
+<div class="card mb-3 mx-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="d-flex justify-content-center col-md-4">
             <img src="assets/storage.png" class="img-fluid rounded-start"
                 alt="users-pic">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{ storageHeading }}</h5>
+                <h4 class="card-title">{{ storageHeading }}</h4>
                 <div class="card-text">
                     <div class="mb-2">
-                        <p>{{ storageType }}</p>
-                        <input class="form-control" name="storageTypeAnswer" #storageTypeAnswer
+                        <p class="text-center">{{ storageType }}</p>
+                        <input class="form-control" name="storageTypeAnswer"
+                            #storageTypeAnswer
                             (input)="setInputValue(storageTypeAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ totalAmountStorage }}</p>
-                        <input class="form-control" name="totalAmountStorageAnswer" #totalAmountStorageAnswer
+                        <p class="text-center">{{ totalAmountStorage }}</p>
+                        <input class="form-control"
+                            name="totalAmountStorageAnswer"
+                            #totalAmountStorageAnswer
                             (input)="setInputValue(totalAmountStorageAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ growthRate }}</p>
-                        <input class="form-control" name="growthRateAnswer" #growthRateAnswer
+                        <p class="text-center">{{ growthRate }}</p>
+                        <input class="form-control" name="growthRateAnswer"
+                            #growthRateAnswer
                             (input)="setInputValue(growthRateAnswer)">
                     </div>
                 </div>
@@ -96,24 +104,27 @@
     </div>
 </div>
 
-<div class="card mb-2">
+<div class="card mb-3 mx-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="d-flex justify-content-center col-md-4">
             <img src="assets/memory.png" class="img-fluid rounded-start"
                 alt="users-pic">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{ memoryHeading }}</h5>
+                <h4 class="card-title">{{ memoryHeading }}</h4>
                 <div class="card-text">
                     <div class="mb-2">
-                        <p>{{ includeCacheMemory }}</p>
-                        <input class="form-control" name="includeCacheMemoryAnswer" #includeCacheMemoryAnswer
+                        <p class="text-center">{{ includeCacheMemory }}</p>
+                        <input class="form-control"
+                            name="includeCacheMemoryAnswer"
+                            #includeCacheMemoryAnswer
                             (input)="setInputValue(includeCacheMemoryAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ cacheMemorySize }}</p>
-                        <input class="form-control" name="cacheMemorySizeAnswer" #cacheMemorySizeAnswer
+                        <p class="text-center">{{ cacheMemorySize }}</p>
+                        <input class="form-control" name="cacheMemorySizeAnswer"
+                            #cacheMemorySizeAnswer
                             (input)="setInputValue(cacheMemorySizeAnswer)">
                     </div>
                 </div>
@@ -122,24 +133,27 @@
     </div>
 </div>
 
-<div class="card mb-2">
+<div class="card mb-3 mx-3">
     <div class="row g-0">
-        <div class="col-md-4">
+        <div class="d-flex justify-content-center col-md-4">
             <img src="assets/network.png" class="img-fluid rounded-start"
                 alt="users-pic">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{ networkHeading }}</h5>
+                <h4 class="card-title">{{ networkHeading }}</h4>
                 <div class="card-text">
                     <div class="mb-2">
-                        <p>{{ trafficVolume }}</p>
-                        <input class="form-control" name="trafficVolumeAnswer" #trafficVolumeAnswer
+                        <p class="text-center">{{ trafficVolume }}</p>
+                        <input class="form-control" name="trafficVolumeAnswer"
+                            #trafficVolumeAnswer
                             (input)="setInputValue(trafficVolumeAnswer)">
                     </div>
                     <div class="mb-2">
-                        <p>{{ dataTransferSize }}</p>
-                        <input class="form-control" name="dataTransferSizeAnswer" #dataTransferSizeAnswer
+                        <p class="text-center">{{ dataTransferSize }}</p>
+                        <input class="form-control"
+                            name="dataTransferSizeAnswer"
+                            #dataTransferSizeAnswer
                             (input)="setInputValue(dataTransferSizeAnswer)">
                     </div>
                 </div>

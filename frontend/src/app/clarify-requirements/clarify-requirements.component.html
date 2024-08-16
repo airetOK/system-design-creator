@@ -1,21 +1,21 @@
 
-<p class="text-center lead">{{ clarifyReq }}</p>
+<h1 class="text-center">{{ clarifyReq }}</h1>
 <div class="d-flex justify-content-center column-gap-3 mx-4">
-    <div class="col-6">
-        <p class="lead">{{ funcReq }}</p>
+    <div class="col-6 funcReqCol p-2">
+        <p class="text-center lead">{{ funcReq }}</p>
         <ul *ngFor="let question of funcReqQuestions; let i = index;"
             class="list-group">
-            <li class="list-group-item mb-2">{{question}}</li>
+            <li class="list-group-item mb-2 text-center">{{question}}</li>
             <div class="mb-3">
                 <textarea name="funcAnswer{{i}}" #funcAnswer{{i}}
                     class="form-control" rows="2" (input)="setInputValue($event.target)"></textarea>
             </div>
         </ul>
     </div>
-    <div class="col-6">
-        <p class="lead">{{ nonFuncReq }}</p>
+    <div class="col-6 nonFuncReqCol p-2">
+        <p class="text-center lead">{{ nonFuncReq }}</p>
         <ul *ngFor="let question of nonFuncReqQuestions; let i = index;" class="list-group">
-            <li class="list-group-item mb-2">{{question}}</li>
+            <li class="list-group-item mb-2 text-center">{{question}}</li>
             <div class="mb-3">
                 <textarea name="nonFuncAnswer{{i}}" #nonFuncAnswer{{i}}
                     class="form-control" rows="2" (input)="setInputValue($event.target)"></textarea>

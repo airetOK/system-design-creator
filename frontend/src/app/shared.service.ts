@@ -115,7 +115,6 @@ export class SharedService {
         "rate_limiting": this.deepDiveIntoKeyComponentsData.rateLimitingAnswer
       }
     };
-    console.log(requestBody);
     this.client.post(`${environment.apiUrl}${this.GENERATE_PDF_PATH}`, requestBody).subscribe(response => {
       // TO:DO generate download link for .pdf
       console.log(response);
