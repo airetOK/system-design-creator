@@ -1,9 +1,19 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from entity.system_design import SystemDesign
 from generator.pdf_generator import PdfGenerator
 
+
 app = FastAPI()
+# TO:DO get URL from env
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],
+    allow_credentials=False,
+    allow_methods=["POST"],
+    allow_headers=["*"],
+)
 pdf_generator = PdfGenerator()
 
 

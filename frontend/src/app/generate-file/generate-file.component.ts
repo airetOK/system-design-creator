@@ -24,6 +24,6 @@ export class GenerateFileComponent implements OnInit {
   }
 
   sendData(): void {
-    // collect data via shared service and POST to backend
+    this.sharedService.sendData();
   }
 }
