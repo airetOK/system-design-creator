@@ -4,3 +4,19 @@ button {
     background-color: white;
     box-shadow: 2px 2px;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* The element to apply the animation to */
+button {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}

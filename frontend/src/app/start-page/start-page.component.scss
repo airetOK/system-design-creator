@@ -1,10 +1,44 @@
-input, select {
+input {
     border-radius: 0;
     border-width: inherit;
     box-shadow: 4px 3px;
 }
 
+ul, li {
+    border-radius: 0;
+    border-width: inherit;
+}
+
 .inputGroup {
     margin-right: 20%;
     margin-left: 20%;
+}
+
+button {
+    border-radius: 0;
+    border-width: 0;
+    color: #030303;
+    background-color: white;
+    box-shadow: 2px 2px;
+}
+
+button:hover {
+    background-color: #8685ef;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* The element to apply the animation to */
+.inputGroup, button {
+    animation-name: fadeIn;
+    animation-duration: 1s;
 }

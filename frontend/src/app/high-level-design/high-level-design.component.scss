@@ -14,3 +14,19 @@ input {
     border-width: inherit;
     box-shadow: 4px 3px;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* The element to apply the animation to */
+.card {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
