@@ -1,0 +1,10 @@
+{
+    "en": {
+        "heading": "Step 5: Design API and Communication Protocols",
+        "columns": ["Method", "Description", "Response code"]
+    },
+    "ua": {
+        "heading": "Крок 5: Дизайн API та протоколи зв’язку",
+        "columns": ["Метод", "Опис", "Код відповіді"]
+    }
+}

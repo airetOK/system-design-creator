@@ -28,8 +28,8 @@ export class HighLevelDesignComponent implements OnInit {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      const base64string = reader.result as string;
-      this.sharedService.highLevelDesignData[event.target.name] = base64string;
+      let base64string = reader.result as string;
+      this.sharedService.highLevelDesignData[event.target.name] = base64string.replace('data:image/png;base64,', '');
     }
 
     if (file) {

@@ -2,7 +2,6 @@ from pydantic import BaseModel
 
 
 class DeepDiveIntoKeyComponents(BaseModel):
-
     database: str
     web_app_servers: str
     load_balancers: str
