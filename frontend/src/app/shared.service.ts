@@ -78,8 +78,16 @@ export class SharedService {
       "name": this.startPageData.name,
       "language": this.startPageData.language,
       "clarify_requirements": {
-        "func_req_answers": [this.clarifyRequirementsData.funcAnswer0],
-        "nonfunc_req_answers": [this.clarifyRequirementsData.nonFuncAnswer0],
+        "func_req_answers": [this.clarifyRequirementsData.funcAnswer0, this.clarifyRequirementsData.funcAnswer1,
+        this.clarifyRequirementsData.funcAnswer2, this.clarifyRequirementsData.funcAnswer3,
+        this.clarifyRequirementsData.funcAnswer4, this.clarifyRequirementsData.funcAnswer5,
+        this.clarifyRequirementsData.funcAnswer6, this.clarifyRequirementsData.funcAnswer7,
+        ],
+        "nonfunc_req_answers": [this.clarifyRequirementsData.nonFuncAnswer0, this.clarifyRequirementsData.nonFuncAnswer1,
+          this.clarifyRequirementsData.nonFuncAnswer2, this.clarifyRequirementsData.nonFuncAnswer3,
+          this.clarifyRequirementsData.nonFuncAnswer4, this.clarifyRequirementsData.nonFuncAnswer5,
+          this.clarifyRequirementsData.nonFuncAnswer6, this.clarifyRequirementsData.nonFuncAnswer7,
+          ]
       },
       "capacity_estimation": {
         "daily_users_count": this.capacityEstimationData.dailyUsersAnswer,
