@@ -45,4 +45,3 @@ venv
 __pycache__
 
 *.pdf
-backend/assets/
