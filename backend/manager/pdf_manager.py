@@ -1,10 +1,12 @@
 import base64
+import os
 from uuid import uuid4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, Flowable, Table
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import cm
 
-from generator.generator import Generator
+from manager.file_manager import FileManager
+from manager.pdf_response import PdfResponse
 from entity.system_design import SystemDesign
 from entity.clarify_requirements import ClarifyRequirements
 from entity.capacity_estimation import CapacityEstimation
@@ -20,7 +22,7 @@ from data.design_api_and_communication_protocols_data import DesignApiAndCommuni
 from data.deep_dive_into_key_components_data import DeepDiveIntoKeyComponentsData
 
 
-class PdfGenerator(Generator):
+class PdfManager(FileManager):
 
     def __init__(self):
         super().__init__()
@@ -32,15 +34,21 @@ class PdfGenerator(Generator):
         self.__dive_deep_data = DeepDiveIntoKeyComponentsData()
 
         self.__styles = getSampleStyleSheet()
+        self.__style_title = self.__styles["Title"]
         self.__style_normal = self.__styles["Normal"]
         self.__style_heading1 = self.__styles["Heading1"]
         self.__style_heading2 = self.__styles["Heading2"]
         self.__style_heading3 = self.__styles["Heading3"]
 
-    def create(self, system_design: SystemDesign) -> str:
+        self.path = "static"
+        self.pdf_extension = "pdf"
+        self.png_extension = "png"
+
+    def create(self, system_design: SystemDesign) -> PdfResponse:
         pdf_data = []
-        name = system_design.name
-        filename = str(uuid4())
+        filename = f'{self.path}/{str(uuid4())}.{self.pdf_extension}'
+        pdf = PdfResponse(filename)
+
         lang = system_design.language
         clarify_requirements = system_design.clarify_requirements
         capacity_estimation = system_design.capacity_estimation
@@ -50,14 +58,27 @@ class PdfGenerator(Generator):
         deep_dive = system_design.deep_dive_into_key_components
 
         doc = self.__doc_template(filename)
+        self.__add_title(pdf_data, system_design.name)
         self.__add_clarify_requirements(pdf_data, lang, clarify_requirements)
         self.__add_capacity_estimation(pdf_data, lang, capacity_estimation)
-        self.__add_high_level_design(pdf_data, lang, high_level_design)
-        self.__add_database_design(pdf_data, lang, database_design)
+        pdf.images.append(self.__add_high_level_design(pdf_data, lang, high_level_design))
+        pdf.images.append(self.__add_database_design(pdf_data, lang, database_design))
         self.__add_design_api_and_communication_protocols(pdf_data, lang, design_api)
         self.__add_dive_deeper_into_key_components(pdf_data, lang, deep_dive)
         doc.build(pdf_data)
-        return f'{filename}.pdf'
+
+        return pdf
+
+    @staticmethod
+    def delete(pdf: PdfResponse):
+        os.unlink(pdf.filename)
+        for image in pdf.images:
+            if image:
+                os.unlink(image)
+
+    def __add_title(self, pdf_data: list[Flowable], title: str):
+        pdf_data.append(Paragraph(title, self.__style_title))
+        pdf_data.append(self.__add_line_break())
 
     def __add_clarify_requirements(self, pdf_data: list[Flowable], lang: str,
                                    clarify_requirements: ClarifyRequirements):
@@ -130,19 +151,21 @@ class PdfGenerator(Generator):
         self.__add_answer_after_question(pdf_data, values, answers)
         pdf_data.append(self.__add_page_break())
 
-    def __add_high_level_design(self, pdf_data: list[Flowable], lang: str, high_level_design: HighLevelDesign):
+    def __add_high_level_design(self, pdf_data: list[Flowable], lang: str, high_level_design: HighLevelDesign) -> str:
         heading = self.__paragraph_heading(self.__hld_data.get_heading(lang))
         pdf_data.append(heading)
         pdf_data.append(self.__add_line_break())
-        self.__add_image(pdf_data, high_level_design)
+        image_name = self.__add_image(pdf_data, high_level_design)
         pdf_data.append(self.__add_page_break())
+        return image_name
 
-    def __add_database_design(self, pdf_data: list[Flowable], lang: str, database_design: DatabaseDesign):
+    def __add_database_design(self, pdf_data: list[Flowable], lang: str, database_design: DatabaseDesign) -> str:
         heading = self.__paragraph_heading(self.__dd_data.get_heading(lang))
         pdf_data.append(heading)
         pdf_data.append(self.__add_line_break())
-        self.__add_image(pdf_data, database_design)
+        image_name = self.__add_image(pdf_data, database_design)
         pdf_data.append(self.__add_page_break())
+        return image_name
 
     def __add_design_api_and_communication_protocols(self, pdf_data: list[Flowable],
                                                      lang: str, design_api: DesignApiAndCommunicationProtocols):
@@ -215,7 +238,7 @@ class PdfGenerator(Generator):
 
     @staticmethod
     def __doc_template(file_name: str) -> SimpleDocTemplate:
-        return SimpleDocTemplate(f"{file_name}.pdf",
+        return SimpleDocTemplate(f"{file_name}",
                                  leftMargin=0.75 * cm,
                                  rightMargin=0.75 * cm,
                                  topMargin=1 * cm,
@@ -243,14 +266,14 @@ class PdfGenerator(Generator):
             except IndexError:
                 pass
 
-    @staticmethod
-    def __add_image(pdf_data: list[Flowable], high_level_design: HighLevelDesign):
+    def __add_image(self, pdf_data: list[Flowable], high_level_design: HighLevelDesign) -> str:
         if high_level_design.image_base64:
-            image_name = f"assets/{str(uuid4())}.png"
+            image_name = f"{self.path}/{str(uuid4())}.{self.png_extension}"
             with open(image_name, "wb") as f:
                 f.write(base64.decodebytes(bytes(high_level_design.image_base64, encoding='utf8')))
 
             pdf_data.append(Image(image_name))
+            return image_name
 
     @staticmethod
     def __add_table(pdf_data: list[Flowable], columns: list[str], design_api: DesignApiAndCommunicationProtocols):

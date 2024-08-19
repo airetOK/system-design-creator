@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
 from entity.system_design import SystemDesign
+from manager.pdf_response import PdfResponse
 
 
-class Generator(ABC):
+class FileManager(ABC):
 
     def __init__(self):
         super().__init__()
@@ -10,4 +11,9 @@ class Generator(ABC):
 
     @abstractmethod
     def create(self, system_design: SystemDesign):
+        pass
+
+    @staticmethod
+    @abstractmethod
+    def delete(self, pdf: PdfResponse):
         pass
