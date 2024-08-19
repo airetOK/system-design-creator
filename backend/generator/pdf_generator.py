@@ -37,9 +37,10 @@ class PdfGenerator(Generator):
         self.__style_heading2 = self.__styles["Heading2"]
         self.__style_heading3 = self.__styles["Heading3"]
 
-    def create(self, system_design: SystemDesign):
+    def create(self, system_design: SystemDesign) -> str:
         pdf_data = []
         name = system_design.name
+        filename = str(uuid4())
         lang = system_design.language
         clarify_requirements = system_design.clarify_requirements
         capacity_estimation = system_design.capacity_estimation
@@ -48,7 +49,7 @@ class PdfGenerator(Generator):
         design_api = system_design.design_api_and_communicaton_protocols
         deep_dive = system_design.deep_dive_into_key_components
 
-        doc = self.__doc_template(name)
+        doc = self.__doc_template(filename)
         self.__add_clarify_requirements(pdf_data, lang, clarify_requirements)
         self.__add_capacity_estimation(pdf_data, lang, capacity_estimation)
         self.__add_high_level_design(pdf_data, lang, high_level_design)
@@ -56,6 +57,7 @@ class PdfGenerator(Generator):
         self.__add_design_api_and_communication_protocols(pdf_data, lang, design_api)
         self.__add_dive_deeper_into_key_components(pdf_data, lang, deep_dive)
         doc.build(pdf_data)
+        return f'{filename}.pdf'
 
     def __add_clarify_requirements(self, pdf_data: list[Flowable], lang: str,
                                    clarify_requirements: ClarifyRequirements):

@@ -124,9 +124,12 @@ export class SharedService {
       }
     };
     console.log(requestBody);
-    this.client.post(`${environment.apiUrl}${this.GENERATE_PDF_PATH}`, requestBody).subscribe(response => {
-      // TO:DO generate download link for .pdf
-      console.log(response);
+    this.client.post(`${environment.apiUrl}${this.GENERATE_PDF_PATH}`, requestBody, {
+      "responseType": "blob"
+    }).subscribe(response => {
+      const file = new Blob([response], { type: 'application/pdf' })
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
     });
   }
 }
